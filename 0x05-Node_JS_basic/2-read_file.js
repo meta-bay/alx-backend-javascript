@@ -1,35 +1,38 @@
 const fs = require('fs');
 
-function countStudents (path) {
+function countStudents (dbPath) {
   try {
-    const data = fs.readFileSync(path, 'utf8');
-    const studentsList = data.split('\n').filter((line) => line.trim() !== '');
-    studentsList.shift();
+    const fileContent = fs.readFileSync(dbPath, 'utf8');
+    const students = fileContent.split('\n').slice(1);
+    const studentData = [];
+    const fieldGroups = {};
 
-    const fields = { CS: [], SWE: [] };
+    for (const student of students) {
+      const details = student.split(',');
+      studentData.push(details);
+      fieldGroups[details[details.length - 1]] = [];
+    }
 
-    studentsList.forEach((line) => {
-      const [firstname, , , field] = line.split(',');
-      if (field === 'CS') {
-        fields.CS.push(firstname);
-      } else if (field === 'SWE') {
-        fields.SWE.push(firstname);
+    for (const record of studentData) {
+      if (record[record.length - 1] === 'CS') fieldGroups.CS.push(record[0]);
+      else if (record[record.length - 1] === 'SWE') fieldGroups.SWE.push(record[0]);
+    }
+
+    const summary = {
+      total: students.length,
+      cs: {
+        count: fieldGroups.CS.length,
+        names: fieldGroups.CS.join(', ')
+      },
+      swe: {
+        count: fieldGroups.SWE.length,
+        names: fieldGroups.SWE.join(', ')
       }
-    });
+    };
 
-    const totalStudents = fields.CS.length + fields.SWE.length;
-
-    console.log(`Number of students: ${totalStudents}`);
-    console.log(
-      `Number of students in CS: ${fields.CS.length}. List: ${fields.CS.join(
-        ', '
-      )}`
-    );
-    console.log(
-      `Number of students in SWE: ${fields.SWE.length}. List: ${fields.SWE.join(
-        ', '
-      )}`
-    );
+    console.log(`Number of students: ${summary.total}`);
+    console.log(`Number of students in CS: ${summary.cs.count}. List: ${summary.cs.names}`);
+    console.log(`Number of students in SWE: ${summary.swe.count}. List: ${summary.swe.names}`);
   } catch (err) {
     throw new Error('Cannot load the database');
   }
