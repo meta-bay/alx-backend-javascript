@@ -1,5 +1,4 @@
 console.log('Welcome to Holberton School, what is your name?');
-
 process.stdin.setEncoding('utf-8');
 process.stdin.on('readable', () => {
   const user_name = process.stdin.read();
