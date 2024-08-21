@@ -43,7 +43,7 @@ class StudentsController {
       res.status(500).send('Major parameter must be CS or SWE');
       return;
     }
-    
+
     readDatabase(filePath)
       .then((studentData) => {
         let responseMessage = '';
