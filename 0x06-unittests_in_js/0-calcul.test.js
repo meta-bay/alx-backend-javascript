@@ -28,4 +28,16 @@ describe('calculateNumber', () => {
   it('...', () => {
     assert.equal(calculateNumber(2.234, 6.6958), 9);
   });
+  it('...', () => {
+    assert.equal(calculateNumber(2.999999, 6.6958), 10);
+  });
+  it('...', () => {
+    assert.equal(calculateNumber(25.2, 3), 28);
+  });
+  it('...', () => {
+    assert.equal(calculateNumber(12, 14), 26);
+  });
+  it('...', () => {
+    assert.equal(calculateNumber(11.4, 17.8), 29);
+  });
 });
