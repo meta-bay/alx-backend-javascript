@@ -22,4 +22,10 @@ describe('calculateNumber', function () {
   it('...', function () {
     assert.equal(calculateNumber(-4, 2), -2);
   });
+  it('...', function () {
+    assert.equal(calculateNumber(1.0, 2.0), 3);
+  });
+  it('...', function () {
+    assert.equal(calculateNumber(2.234, 6.6958), 9);
+  });
 });
