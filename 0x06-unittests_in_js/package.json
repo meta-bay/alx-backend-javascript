@@ -2,7 +2,14 @@
   "dependencies": {
     "mocha": "^10.7.3"
   },
+  "name": "0x06-unittests_in_js",
+  "version": "1.0.0",
+  "description": "ALX 0x06-unittests_in_js project",
+  "main": "index.js",
   "scripts": {
     "test": "mocha"
-  }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
