@@ -13,4 +13,13 @@ describe('calculateNumber', function () {
   it('...', function () {
     assert.equal(calculateNumber(1.5, 3.7), 6);
   });
+  it('...', function () {
+    assert.equal(calculateNumber(0.1, 1), 1);
+  });
+  it('...', function () {
+    assert.equal(calculateNumber(0, 0), 0);
+  });
+  it('...', function () {
+    assert.equal(calculateNumber(-4, 2), -2);
+  });
 });
