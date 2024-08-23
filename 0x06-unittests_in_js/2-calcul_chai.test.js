@@ -21,7 +21,7 @@ describe('calculateNumber', () => {
     });
 
     it('should return -2 when a = -1.6 and b = -0.4', function () {
-      expect(calculateNumber('SUM', -1.6, -0.4),).to.equal(2);
+      expect(calculateNumber('SUM', -1.6, -0.4),).to.equal(-2);
     });
 
     it('should return 6 when a = 2.5 and b = 2.5', function () {
@@ -34,15 +34,15 @@ describe('calculateNumber', () => {
   });
   describe('calculateNumber type == SUBTRACT', () => {
     it('should return 4 when a = 1.4 and b = 2.5', function () {
-      expect(calculateNumber('SUBTRACT', 1.4, 2.5)).to.equal(2);
+      expect(calculateNumber('SUBTRACT', 1.4, 2.5)).to.equal(-2);
     });
 
     it('should return 4 when a = 1 and b = 3', function () {
-      expect(calculateNumber('SUBTRACT', 1, 3)).to.equal(2);
+      expect(calculateNumber('SUBTRACT', 1, 3)).to.equal(-2);
     });
 
     it('should return 5 when a = 1.6 and b = 2.5', function () {
-      expect(calculateNumber('SUBTRACT', 1.6, 2.5)).to.equal(1);
+      expect(calculateNumber('SUBTRACT', 1.6, 2.5)).to.equal(-1);
     });
 
     it('should return 0 when a = -0.4 and b = 0.4', function () {
@@ -50,7 +50,7 @@ describe('calculateNumber', () => {
     });
 
     it('should return -2 when a = -1.6 and b = -0.4', function () {
-      expect(calculateNumber('SUBTRACT', -1.6, -0.4)).to.equal(2);
+      expect(calculateNumber('SUBTRACT', -1.6, -0.4)).to.equal(-2);
     });
 
     it('should return 6 when a = 2.5 and b = 2.5', function () {
@@ -79,7 +79,7 @@ describe('calculateNumber', () => {
     });
 
     it('should return -2 when a = -1.6 and b = -0.4', function () {
-      expect(calculateNumber('DIVIDE', -1.6, 1.4)).to.equal(2);
+      expect(calculateNumber('DIVIDE', -1.6, 1.4)).to.equal(-2);
     });
 
     it('should return 1 when a = 2.5 and b = 2.5', function () {
@@ -87,7 +87,7 @@ describe('calculateNumber', () => {
     });
 
     it('should return 0 when a = 0.1 and b = -0.1', function () {
-      expect(calculateNumber('DIVIDE', 0.1, 0)).to.equal('Equal');
+      expect(calculateNumber('DIVIDE', 0.1, 0)).to.equal('Error');
     });
   });
 });
