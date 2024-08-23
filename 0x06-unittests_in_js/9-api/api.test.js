@@ -5,7 +5,7 @@ describe('API integration test', () => {
   const API_URL = 'http://localhost:7865';
 
   it('should return 200 and welcome message for GET /', (done) => {
-    request.get(`${API_URL}/`, (_err, res, body) => {
+    request.get(`${API_URL}/`, (err, res, body) => {
       expect(res.statusCode).to.be.equal(200);
       expect(body).to.be.equal('Welcome to the payment system');
       done();
@@ -13,7 +13,7 @@ describe('API integration test', () => {
   });
 
   it('should return 200 and correct message for valid cart ID in GET /cart/:id', (done) => {
-    request.get(`${API_URL}/cart/47`, (_err, res, body) => {
+    request.get(`${API_URL}/cart/47`, (err, res, body) => {
       expect(res.statusCode).to.be.equal(200);
       expect(body).to.be.equal('Payment methods for cart 47');
       done();
@@ -21,7 +21,7 @@ describe('API integration test', () => {
   });
 
   it('should return 404 for negative cart ID in GET /cart/:id', (done) => {
-    request.get(`${API_URL}/cart/-47`, (_err, res, _body) => {
+    request.get(`${API_URL}/cart/-47`, (err, res, body) => {
       expect(res.statusCode).to.be.equal(404);
       done();
     });
